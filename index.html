@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jayden Ko | Data Portfolio</title>
+<meta name="description" content="Jayden Ko: UCLA Statistics & Data Science student. Projects and capabilities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+  :root { --paper:#F6F8FB; --card:#FFFFFF; --ink:#13213C; --muted:#5A6A82; --line:#D9E1EC; --blue:#2774AE; --gold:#E0A800; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--paper); color: var(--ink); }
+  h1, h2, h3, .serif { font-family: 'Source Serif 4', Georgia, serif; letter-spacing: -0.01em; }
+  .muted { color: var(--muted); }
+  .panel { background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+  .tab { padding: .5rem .9rem; border-radius: 6px; font-weight: 500; color: var(--muted); }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] { color: #fff; background: var(--ink); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
+  .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.1rem; border-radius: 8px; font-weight: 600; background: var(--blue); color: #fff; transition: background .15s; }
+  .btn:hover { background: #1d5d8d; }
+  .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: #fff; }
+  .chip { display: inline-block; padding: .25rem .65rem; border: 1px solid var(--line); background: #fff; border-radius: 999px; font-size: .875rem; }
+  .placeholder-chart { border: 2px dashed var(--line); border-radius: 10px; background: repeating-linear-gradient(135deg, #fff 0 12px, #F6F8FB 12px 24px); }
+  .pitch { opacity: 0; animation: drop .5s ease-out forwards; }
+  @keyframes drop { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .pitch { animation: none; opacity: 1; } html { scroll-behavior: auto; } }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-20 border-b backdrop-blur" style="background:rgba(246,248,251,.92);border-color:var(--line)">
+  <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+    <a href="#projects" class="serif text-xl font-bold">Jayden Ko</a>
+    <nav class="flex items-center gap-1" role="tablist" aria-label="Sections">
+      <button class="tab" role="tab" id="tab-projects" aria-controls="projects" aria-selected="true">Projects</button>
+      <button class="tab" role="tab" id="tab-resume" aria-controls="resume" aria-selected="false">Resume / Capabilities</button>
+    </nav>
+    <div class="flex items-center gap-3">
+      <!-- TODO: replace both URLs -->
+      <a href="https://www.linkedin.com/in/ko-jayden/" target="_blank" rel="noopener" aria-label="LinkedIn" class="muted hover:text-[color:var(--blue)]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a href="https://github.com/jaydenyko" target="_blank" rel="noopener" aria-label="GitHub" class="muted hover:text-[color:var(--blue)]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.600-2.800 5.600-5.500 5.900.4.400.800 1.100.800 2.200v3.300c0 .300.200.700.800.600A12 12 0 0 0 12 .3"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-4 py-10">
+
+<!-- TAB 1: PROJECTS -->
+<section id="projects" role="tabpanel" aria-labelledby="tab-projects">
+
+  <div class="grid md:grid-cols-5 gap-8 items-center">
+    <div class="md:col-span-3">
+      <p class="muted mb-3">Featured project &middot; Data analysis</p>
+      <h1 class="text-3xl sm:text-4xl font-bold leading-tight">How Effective Is the MLB ABS (Automated Ball-Strike) System?</h1>
+      <p class="mt-4 muted text-lg max-w-xl">A data analysis project evaluating the accuracy and impact of the automated ball-strike system in minor league baseball, using public data from MLB and Baseball Savant.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <!-- TODO: replace with your repo URL -->
+        <a class="btn" href="https://github.com/jaydenyko/mlb-abs-analysis" target="_blank" rel="noopener">View the GitHub repository</a>
+        <a class="btn btn-outline" href="#findings">Jump to findings</a>
+      </div>
+    </div>
+    <!-- Strike zone graphic: illustrative placeholder pitches -->
+    <figure class="md:col-span-2 panel p-4" aria-label="Illustration of a strike zone with sample pitch locations">
+      <svg viewBox="0 0 240 280" class="w-full h-auto" role="img" aria-label="Strike zone grid with sample called pitches">
+        <rect x="55" y="55" width="130" height="170" fill="#EAF2F9" stroke="#13213C" stroke-width="2.5"/>
+        <g stroke="#9DB3CB" stroke-width="1"><line x1="98.3" y1="55" x2="98.3" y2="225"/><line x1="141.6" y1="55" x2="141.6" y2="225"/><line x1="55" y1="111.6" x2="185" y2="111.6"/><line x1="55" y1="168.3" x2="185" y2="168.3"/></g>
+        <g class="pitch" style="animation-delay:.1s"><circle cx="120" cy="140" r="7" fill="#2774AE"/></g>
+        <g class="pitch" style="animation-delay:.25s"><circle cx="80" cy="90" r="7" fill="#2774AE"/></g>
+        <g class="pitch" style="animation-delay:.4s"><circle cx="165" cy="190" r="7" fill="#2774AE"/></g>
+        <g class="pitch" style="animation-delay:.55s"><circle cx="105" cy="205" r="7" fill="#2774AE"/></g>
+        <g class="pitch" style="animation-delay:.7s"><circle cx="195" cy="120" r="7" fill="#fff" stroke="#13213C" stroke-width="2"/></g>
+        <g class="pitch" style="animation-delay:.85s"><circle cx="45" cy="165" r="7" fill="#fff" stroke="#13213C" stroke-width="2"/></g>
+        <g class="pitch" style="animation-delay:1s"><circle cx="185" cy="50" r="9" fill="none" stroke="#E0A800" stroke-width="3"/><circle cx="185" cy="50" r="3.5" fill="#E0A800"/></g>
+        <polygon points="95,255 145,255 145,265 120,278 95,265" fill="#fff" stroke="#13213C" stroke-width="2"/>
+      </svg>
+      <figcaption class="text-sm muted mt-2">Illustration only: blue = strikes, white = balls, gold ring = a call a challenge would overturn.</figcaption>
+    </figure>
+  </div>
+
+  <div class="mt-14 grid gap-6">
+
+    <article class="panel p-6">
+      <h2 class="text-2xl font-bold">Overview &amp; Objective</h2>
+      <p class="mt-3 muted max-w-3xl">MLB's Automated Ball-Strike (ABS) Challenge System lets a batter, pitcher or catcher challenge a ball or strike call, and Hawk-Eye tracking settles it. Each team gets a limited number of challenges, and a team keeps a challenge when it wins. The system was tested for years in the minor leagues before reaching the majors in 2026. This project looks at how it performed in Triple-A, where a full season of challenge data is public, and compares it with spring training and the 2026 MLB season.</p>
+      <ul class="mt-4 space-y-2 max-w-3xl list-disc pl-5">
+        <li>How often are challenges made, and how often do they overturn the umpire?</li>
+        <li>Do batters and fielders (mostly catchers) challenge equally well?</li>
+        <li>Does game situation, such as the count or the inning, change who wins a challenge?</li>
+      </ul>
+    </article>
+
+    <article class="panel p-6">
+      <h2 class="text-2xl font-bold">Data Collection &amp; Cleaning</h2>
+      <p class="mt-3 muted max-w-3xl">The data comes from MLB's public Baseball Savant ABS challenge leaderboard, which reports challenges and overturned calls by level, season, player and team. The count, inning and height breakdowns in the charts below come from MLB.com's published analysis of the same Triple-A season.</p>
+      <ul class="mt-4 grid sm:grid-cols-3 gap-3">
+        <li class="p-4 rounded-lg" style="background:var(--paper)"><h3 class="font-semibold">Collect</h3><p class="text-sm muted mt-1">I downloaded the Triple-A 2025 batter table from Baseball Savant as a CSV file (it covers challenges made by batters and challenges made against them) and loaded it in Python on Google Colab.</p></li>
+        <li class="p-4 rounded-lg" style="background:var(--paper)"><h3 class="font-semibold">Clean</h3><p class="text-sm muted mt-1">I used pandas to verify the file, checked every overturn rate against the raw counts, reshaped it to one row per batter and role, and dropped rows with no challenges.</p></li>
+        <li class="p-4 rounded-lg" style="background:var(--paper)"><h3 class="font-semibold">Query</h3><p class="text-sm muted mt-1">I loaded the cleaned table into SQLite and used SQL to total challenges and overturns by role and team, then compared the results with MLB.com's published figures.</p></li>
+      </ul>
+      <div class="mt-4 flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">SQL</span><span class="chip">Google Colab</span></div>
+    </article>
+
+    <article class="panel p-6">
+      <h2 class="text-2xl font-bold">Visualizations</h2>
+      <p class="mt-3 muted max-w-3xl">I computed chart 1 from the Baseball Savant data. Charts 2 and 3 use Triple-A 2025 figures published by MLB.com.</p>
+      <div class="mt-4 grid md:grid-cols-3 gap-4">
+        <figure><div class="panel p-3"><div class="font-semibold text-sm mb-2">Overturn rate by who challenged</div><div data-chart='[["All challenges",49.4],["Batters",45.1],["Fielders",53.7]]'></div></div><figcaption class="text-sm muted mt-2">Fielders (catchers and pitchers) won about 9 points more often than batters.</figcaption></figure>
+        <figure><div class="panel p-3"><div class="font-semibold text-sm mb-2">Batter success by count</div><div data-chart='[["Other counts",51],["Two strikes",36],["Full count",34]]'></div></div><figcaption class="text-sm muted mt-2">Batters challenged more often with strikeouts looming, and won less.</figcaption></figure>
+        <figure><div class="panel p-3"><div class="font-semibold text-sm mb-2">Batter success by height</div><div data-chart='[["5-9 or under",50],["5-10 to 6-2",44],["6-3 or taller",44]]'></div></div><figcaption class="text-sm muted mt-2">Height showed little effect, even for the tallest group.</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="panel p-6" id="findings">
+      <h2 class="text-2xl font-bold">Key Findings &amp; Impact</h2>
+      <ul class="mt-4 space-y-3 max-w-3xl">
+        <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full shrink-0" style="background:var(--blue)"></span><span><strong>Challenges are rare.</strong> <span class="muted">MLB.com counted 9,432 challenges on about 861,000 Triple-A pitches, so roughly 1% of pitches were challenged and 0.5% were overturned.</span></span></li>
+        <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full shrink-0" style="background:var(--blue)"></span><span><strong>Umpires are hard to beat.</strong> <span class="muted">Players pick only the pitches they think were missed, yet the overturn rate was only 49.4% in the Baseball Savant data. MLB.com also found a challenge in 98.5% of games, but two or fewer overturns in 61% of games.</span></span></li>
+        <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full shrink-0" style="background:var(--blue)"></span><span><strong>Fielders challenge better than batters.</strong> <span class="muted">Fielders won 53.7% of challenges and batters 45.1%. The same gap showed up in 2026 spring training (60% vs 45%), and AP reported a 54% overturn rate in MLB's first regular season with catchers more successful than batters.</span></span></li>
+        <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full shrink-0" style="background:var(--blue)"></span><span><strong>Desperation hurts.</strong> <span class="muted">Batters won 51% of challenges in most counts but only 36% on two strikes and 34% on full counts.</span></span></li>
+        <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full shrink-0" style="background:var(--blue)"></span><span><strong>Skill varies widely.</strong> <span class="muted">Among Triple-A teams, batting challenge success ranged from 36.6% (Louisville Bats) to 55.0% (Oklahoma City Comets).</span></span></li>
+      </ul>
+      <h3 class="text-lg font-bold mt-6">Impact</h3>
+      <p class="mt-2 muted max-w-3xl">Although few pitches were challenged, the ones that were mattered. Challenges reversed 1,239 strikeouts and 584 walks in Triple-A in 2025, and 323 full-count pitches flipped directly between strikeout and walk. The system corrects the clearest misses while leaving most of the umpire's job, and receiving skill, in place.</p>
+      <h3 class="text-lg font-bold mt-6">Limitations</h3>
+      <p class="mt-2 muted max-w-3xl">An overturn rate is not an umpire accuracy rate, because players choose which pitches to challenge. Minor league players and umpires also differ from major leaguers, so Triple-A results may not carry over exactly.</p>
+      <a class="btn mt-6" href="https://github.com/jaydenyko/mlb-abs-analysis" target="_blank" rel="noopener">View the code on GitHub</a>
+    </article>
+
+    <article class="panel p-6">
+      <h2 class="text-2xl font-bold">Sources</h2>
+      <ul class="mt-3 space-y-2 list-disc pl-5">
+        <li><a class="underline" href="https://www.mlb.com/news/abs-challenge-system-statistical-breakdown-2025" target="_blank" rel="noopener">MLB.com: There's loads of ABS data from last season. What does it all mean?</a> (Triple-A 2025 figures)</li>
+        <li><a class="underline" href="https://www.mlb.com/milb/news/abs-spring-training-2026-takeaways" target="_blank" rel="noopener">MLB.com: ABS Spring Training 2026 takeaways</a></li>
+        <li><a class="underline" href="https://img.mlbstatic.com/opprops-images/image/upload/opprops/jgdgj1bak2bgiskwpdnm.pdf" target="_blank" rel="noopener">MLB press release: ABS Challenge System coming to the Major Leagues</a> (Sept. 23, 2025)</li>
+        <li><a class="underline" href="https://www.mlb.com/news/abs-challenge-system-mlb-2026" target="_blank" rel="noopener">MLB.com: ABS Challenge System rules and explainer</a></li>
+        <li><a class="underline" href="https://baseballsavant.mlb.com/abs" target="_blank" rel="noopener">Baseball Savant: ABS Dashboard</a> and <a class="underline" href="https://baseballsavant.mlb.com/leaderboard/abs-challenges" target="_blank" rel="noopener">Challenge Leaderboard</a></li>
+        <li><a class="underline" href="https://www.news4jax.com/sports/2026/10/02/robot-umpires-flip-54-of-challenged-calls-in-abs-debut-as-teams-learn-to-time-appeals/" target="_blank" rel="noopener">Associated Press: Robot umpires flip 54% of challenged calls in ABS debut</a> (Oct. 2, 2026)</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- TAB 2: RESUME -->
+<section id="resume" role="tabpanel" aria-labelledby="tab-resume" hidden>
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <h1 class="text-3xl sm:text-4xl font-bold">Resume &amp; Capabilities</h1>
+      <p class="mt-2 muted">Statistics &amp; Data Science student at UCLA.</p>
+    </div>
+    <!-- TODO: put your PDF in the repo as resume.pdf -->
+    <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+  </div>
+
+  <div class="mt-10 grid gap-6">
+    <article class="panel p-6">
+      <h2 class="text-2xl font-bold">Education</h2>
+      <div class="mt-4 grid gap-6">
+        <div>
+          <div class="flex flex-wrap justify-between gap-x-4"><h3 class="text-lg font-bold">University of California, Los Angeles</h3><span class="muted text-sm">September 2025 - Present</span></div>
+          <p class="muted text-sm">Los Angeles, CA &middot; Bachelor of Science in Statistics &amp; Data Science (expected 2028)</p>
+          <ul class="mt-2 list-disc pl-5 muted space-y-1"><li>GPA: 3.5 / 4.0</li><li>Related Coursework: Introduction to Statistical Reasoning, Introduction to Statistical Programming with R, Calculus of Several Variables, Linear Algebra and Applications</li><li>Activities: DataLearn with DataRes at UCLA</li></ul>
+        </div>
+        <div>
+          <div class="flex flex-wrap justify-between gap-x-4"><h3 class="text-lg font-bold">Yonsei University</h3><span class="muted text-sm">June 2026 - August 2026</span></div>
+          <p class="muted text-sm">Seoul, South Korea</p>
+          <ul class="mt-2 list-disc pl-5 muted space-y-1"><li>Study abroad program to study Philosophy and Korean culture at a top Korean university</li></ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel p-6">
+      <h2 class="text-2xl font-bold">Academic Project</h2>
+      <div class="mt-4">
+        <div>
+          <div class="flex flex-wrap justify-between gap-x-4"><h3 class="text-lg font-bold">DataRes - UCLA's largest data science community (DataLearn)</h3><span class="muted text-sm">October 2026 - Present</span></div>
+          <p class="muted text-sm">University of California, Los Angeles, CA</p>
+          <ul class="mt-2 list-disc pl-5 muted space-y-1"><li>Applied Python and machine learning to build predictive models from tabular data</li><li>Queried relational databases using SQL and built interactive dashboards in Tableau</li><li>Completing an intensive 7-week data science curriculum covering Python, SQL, and ML</li></ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel p-6">
+      <h2 class="text-2xl font-bold">Skills</h2>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="chip">R (Intermediate)</span><span class="chip">Python (Intermediate)</span><span class="chip">Korean (Conversational)</span>
+        <span class="chip">SQL</span><span class="chip">Tableau</span><span class="chip">Machine Learning</span>
+      </div>
+    </article>
+
+    <article class="panel p-6">
+      <h2 class="text-2xl font-bold">Experience</h2>
+      <div class="mt-4 grid gap-6">
+        <div>
+          <div class="flex flex-wrap justify-between gap-x-4"><h3 class="text-lg font-bold">IT Consultant</h3><span class="muted text-sm">September 2026 - Present</span></div>
+          <p class="muted text-sm">UCLA Digital &amp; Technology Solutions, Los Angeles, CA</p>
+          <ul class="mt-2 list-disc pl-5 muted space-y-1"><li>Resolved computer, network, and printing issues for UCLA students, faculty, and staff</li><li>Operated under high-pressure conditions to ensure efficient resolution and operational flow</li><li>Expedited technical assistance by managing inquiries and support tickets in ServiceNow</li></ul>
+        </div>
+        <div>
+          <div class="flex flex-wrap justify-between gap-x-4"><h3 class="text-lg font-bold">Line Team Member</h3><span class="muted text-sm">May 2026 - July 2026</span></div>
+          <p class="muted text-sm">Chipotle Mexican Grill, Los Angeles, CA</p>
+          <ul class="mt-2 list-disc pl-5 muted space-y-1"><li>Assembled high-volume orders accurately while delivering friendly customer service</li><li>Upheld strict food safety, sanitation, and quality standards across prep and service stations</li><li>Monitored and restocked line ingredients efficiently to maintain continuous operations</li></ul>
+        </div>
+        <div>
+          <div class="flex flex-wrap justify-between gap-x-4"><h3 class="text-lg font-bold">Teacher Assistant</h3><span class="muted text-sm">June 2024 - August 2024</span></div>
+          <p class="muted text-sm">Best Learning Center, Brea, CA</p>
+          <ul class="mt-2 list-disc pl-5 muted space-y-1"><li>Tutored students in math and English, reinforcing foundational concepts and study skills</li><li>Evaluated student work and exams accurately to assess learning and provide feedback</li><li>Prepared instructional materials and managed dismissals, ensuring classroom operations</li></ul>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="max-w-5xl mx-auto px-4 pb-10 text-sm muted">&copy; <span id="yr"></span> Jayden Ko</footer>
+
+<script>
+  const tabs = { projects: document.getElementById('tab-projects'), resume: document.getElementById('tab-resume') };
+  const panels = { projects: document.getElementById('projects'), resume: document.getElementById('resume') };
+  function show(name) {
+    if (!tabs[name]) name = 'projects';
+    for (const k in tabs) {
+      tabs[k].setAttribute('aria-selected', String(k === name));
+      panels[k].hidden = k !== name;
+    }
+  }
+  for (const k in tabs) tabs[k].addEventListener('click', () => { show(k); history.replaceState(null, '', '#' + k); window.scrollTo(0, 0); });
+  window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (tabs[h]) show(h); });
+  show(location.hash.slice(1));
+  document.querySelectorAll('[data-chart]').forEach(el => {
+    const rows = JSON.parse(el.dataset.chart), ns = 'http://www.w3.org/2000/svg', rh = 34, lw = 92, bw = 150;
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 300 ' + rows.length * rh);
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', rows.map(r => r[0] + ' ' + r[1] + '%').join(', '));
+    rows.forEach((r, i) => {
+      const y = i * rh, g = document.createElementNS(ns, 'g');
+      g.innerHTML = '<text x="0" y="' + (y + 21) + '" font-size="11" fill="#13213C">' + r[0] + '</text>' +
+        '<rect x="' + lw + '" y="' + (y + 7) + '" width="' + bw * r[1] / 100 + '" height="18" rx="3" fill="#2774AE"/>' +
+        '<text x="' + (lw + bw * r[1] / 100 + 6) + '" y="' + (y + 21) + '" font-size="12" font-weight="600" fill="#13213C">' + r[1] + '%</text>';
+      svg.appendChild(g);
+    });
+    el.appendChild(svg);
+  });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
